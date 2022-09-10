@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+    django: 
+        image: company-django
+        build: ./django
+        ports:
+            - 3000:3000
+        environment:
+            DJANGO_SUPERUSER_PASSWORD: admin
+            DJANGO_SUPERUSER_EMAIL: admin@admin.com
+            DJANGO_SUPERUSER_USERNAME: admin
+        depends_on:
+            - mysql
+    mysql:
+        image: company-database
+        build: ./mysql
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: RootPassword
+            MYSQL_DATABASE: Company

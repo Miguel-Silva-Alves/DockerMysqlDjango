@@ -1,0 +1,3 @@
+docker run -d -p 3306:3306 --name company-database -e MYSQL_ROOT_PASSWORD=RootPassword company-database
+
+docker exec -ti <container_id> bash
